@@ -19,3 +19,16 @@ services:
       - ./web:/usr/share/nginx/html
     ports:
       - 8080:80
+  app:
+    image: python:3.6
+    volumes:
+      # Aplicação
+      - ./app:/app
+    working_dir: /app
+    environment:
+      HTTP_PROXY: http://10.251.14.141:3128
+      HTTPS_PROXY: http://10.251.14.141:3128
+      NO_PROXY: '*.camara.gov.br,.camara.leg.br,es'
+    command: bash ./app.sh
+    ports:
+      - 8082:8080
