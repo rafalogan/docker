@@ -27,8 +27,8 @@ services:
       # Aplicação
       - ./app:/app
     working_dir: /app
-    # environment:
-    #   HTTP_PROXY: http://10.251.14.141:3128
-    #   HTTPS_PROXY: http://10.251.14.141:3128
-    #   NO_PROXY: '*.camara.gov.br,.camara.leg.br,es'
+    environment:
+      HTTP_PROXY: http://10.251.14.141:3128
+      HTTPS_PROXY: http://10.251.14.141:3128
+      NO_PROXY: '*.camara.gov.br,.camara.leg.br,es'
     command: bash ./app.sh
